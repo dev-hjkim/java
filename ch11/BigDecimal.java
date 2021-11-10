@@ -1,9 +1,11 @@
 public class BigDecimal {
     /*
     1. BigDecimal 용도 :
-     provides operations for arithmetic, scale manipulation, rounding, comparison, hashing, and format conversion
-     consists of arbitrary precision integer unscaled value and a 32-bit integer scale
-
+    10의 거듭제곱을 통해 값을 나타내고자 할 때 사용한다.
+    소수(arbitrary precision)와 거듭제곱되는 32-bit integer 값(scale)으로 구성된다.
+    산술, scale 조작, 반올림, 비교, 해싱, 형식 변환을 위한 연산을 제공한다.
+    consists of arbitrary precision integer unscaled value and a 32-bit integer scale
+    provides operations for arithmetic, scale manipulation, rounding, comparison, hashing, and format conversion
 
     2. 생성자 개수 : 16개
 
