@@ -1,23 +1,27 @@
+package c.inner.practice;
+
 public class MyPage {
-    static InputBox input;
+    InputBox input;
     public static void main(String[] args) {
         MyPage myPage = new MyPage();
         myPage.setUI();
         myPage.pressKey();
     }
 
+
     public void setUI() {
-        input = new InputBox();
-        KeyEventListener keyEventListener = new KeyEventListener () {
+        this.input = new InputBox();
+        KeyEventListener listener = new KeyEventListener() {
             public void onKeyDown() {
                 System.out.println("Key Down");
             }
-            public void onKeyDown() {
+
+            public void onKeyUp() {
                 System.out.println("Key Up");
             }
         };
 
-        input.setKeyListener(keyEventListener);
+        this.input.setKeyListener(listener);
     }
 
     public void pressKey() {
