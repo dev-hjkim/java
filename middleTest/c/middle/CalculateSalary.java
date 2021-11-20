@@ -8,17 +8,39 @@ public class CalculateSalary {
 
     public long getSalaryIncrease(Employee employee) {
         long salary = employee.getSalary();
-        double increaseRate = EmployeeType(employee.getType()).getRate();
-        return salary * (1+increaseRate);
+
+        int empType = employee.getType();
+        double increaseRate = 0;
+
+        switch(empType) {
+            case 1:
+                increaseRate = EmployeeType.OWNER.getRate();
+                break;
+            case 2:
+                increaseRate = EmployeeType.MANAGER.getRate();
+                break;
+            case 3:
+                increaseRate = EmployeeType.DESIGNER.getRate();
+                break;
+            case 4:
+                increaseRate = EmployeeType.ARCHITECT.getRate();
+                break;
+            case 5:
+                increaseRate = EmployeeType.DEVELOPER.getRate();
+                break;
+        }
+
+        salary *= (1+increaseRate);
+        return (long)salary;
     }
 
     public void calculateSalaries() {
         Employee[] employees = new Employee[5];
-        employees[0] = Employee("LeeDaeRi", 1, 1000000000L);
-        employees[1] = Employee("KimManager", 2, 100000000L);
-        employees[2] = Employee("WhangDesign", 3, 70000000L);
-        employees[3] = Employee("ParkArchi", 4, 80000000L);
-        employees[4] = Employee("LeeDevelop", 5, 60000000L);
+        employees[0] = new Employee("LeeDaeRi", 1, 1000000000L);
+        employees[1] = new Employee("KimManager", 2, 100000000L);
+        employees[2] = new Employee("WhangDesign", 3, 70000000L);
+        employees[3] = new Employee("ParkArchi", 4, 80000000L);
+        employees[4] = new Employee("LeeDevelop", 5, 60000000L);
 
         for (Employee emp : employees) {
             System.out.println(emp.getName() + "=" + getSalaryIncrease(emp));
@@ -34,12 +56,9 @@ public class CalculateSalary {
 
         private int value;
         private double rate;
-        EmployeeType(int value) {
+        EmployeeType(int value, double rate) {
             this.value = value;
-        }
-
-        public int getValue() {
-            return value;
+            this.rate = rate;
         }
 
         public double getRate() {
