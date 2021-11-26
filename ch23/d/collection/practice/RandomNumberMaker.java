@@ -17,10 +17,12 @@ public class RandomNumberMaker {
     public HashSet<Integer> getSixNumber() {
         HashSet<Integer> resObj = new HashSet<Integer>();
 
-        while (resObj.size() < 6) {
+        while (true) {
             Random random = new Random();
             int tempNumber = random.nextInt(45);
+
             resObj.add(tempNumber);
+            if (resObj.size() == 6) break;
         }
 
         return resObj;
