@@ -48,9 +48,11 @@ public class RunObjectThreads {
             System.out.println("thread state(after 0.1 sec)=" + thread.getState()); // WAITING
 
             synchronized (monitor) {
+                monitor.notify();
+                System.out.println("thread state(synchronized)=" + thread.getState()); //
+                System.out.println("thread state(synchronized)=" + thread2.getState()); // WAITING
 //                monitor.notify();
-//                monitor.notify();
-                monitor.notifyAll();
+//                monitor.notifyAll();
             }
 
             Thread.sleep(100);
@@ -65,3 +67,5 @@ public class RunObjectThreads {
         }
     }
 }
+
+
