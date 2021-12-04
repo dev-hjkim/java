@@ -11,15 +11,25 @@ public class FileSizeSummary {
     }
 
     public long printFileSize(String dirName) {
-        File file = new File(dirName);
-        long dirSize = file.length();
+        File dir = new File(dirName);
+        long sum = 0;
 
-        File[] files = file.listFiles();
-        for (File fileItem : files) {
-            dirSize += fileItem.length();
+        if (dir.isDirectory()) {
+            File[] fileList = dir.listFiles();
+            for (File file : fileList) {
+                if (file.isFile()) {
+                    String tempFileName = file.getAbsolutePath();
+                    long fileLength = file.length();
+                    System.out.println(tempFileName + "=" + fileLength);
+                    sum += fileLength;
+                } else {
+                    String tempDirName = file.getAbsolutePath();
+                    long fileLength = printFileSize(tempDirName);
+                    System.out.println("[" + tempDirName + "]=" + fileLength);
+                    sum += fileLength;
+                }
+            }
         }
-
-        return dirSize;
-
+        return sum;
     }
 }
