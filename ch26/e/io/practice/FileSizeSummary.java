@@ -21,7 +21,7 @@ public class FileSizeSummary {
                 if (file.isFile()) {
                     String tempFileName = file.getAbsolutePath();
                     long fileLength = file.length();
-                    System.out.println(tempFileName + "=" + convertFileLength(fileLength));
+                    //System.out.println(tempFileName + "=" + convertFileLength(fileLength));
                     sum += fileLength;
                 } else {
                     String tempDirName = file.getAbsolutePath();
