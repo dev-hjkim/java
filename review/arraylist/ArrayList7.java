@@ -22,6 +22,18 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
     private static final long serialVersionUID = 8683452581122892189L;
 
     /**
+     * Appends the specified element to the end of this list.
+     *
+     * @param e element to be appended to this list
+     * @return <tt>true</tt> (as specified by {@link Collection#add})
+     */
+    public boolean add(E e) {
+        ensureCapacity(size + 1);  // Increments modCount!!
+        elementData[size++] = e;
+        return true;
+    }
+
+    /**
      * Increases the capacity of this <tt>ArrayList</tt> instance, if
      * necessary, to ensure that it can hold at least the number of elements
      * specified by the minimum capacity argument.
@@ -51,19 +63,6 @@ public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAcce
             newCapacity = hugeCapacity(minCapacity);
         // minCapacity is usually close to size, so this is a win:
         elementData = Arrays.copyOf(elementData, newCapacity);
-    }
-
-
-    /**
-     * Appends the specified element to the end of this list.
-     *
-     * @param e element to be appended to this list
-     * @return <tt>true</tt> (as specified by {@link Collection#add})
-     */
-    public boolean add(E e) {
-        ensureCapacity(size + 1);  // Increments modCount!!
-        elementData[size++] = e;
-        return true;
     }
 
 }
