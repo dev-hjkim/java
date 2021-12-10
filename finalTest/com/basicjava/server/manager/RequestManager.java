@@ -3,9 +3,11 @@ package com.basicjava.server.manager;
 import java.net.Socket;
 
 public class RequestManager {
-    RequestManager(Socket socket);
+    public RequestManager(Socket socket);
 
     public RequestDTO readRequest() {
+        RequestDto dto = new RequestDto();
 
+        return dto;
     }
 }

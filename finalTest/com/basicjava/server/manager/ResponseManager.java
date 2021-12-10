@@ -6,7 +6,7 @@ public class ResponseManager {
     private Socket socket;
     private RequestDTO dto;
 
-    ResponseManager(Socket socket, RequestDTO reqDto) {
+    public ResponseManager(Socket socket, RequestDTO reqDto) {
         this.socket = socket;
         this.dto = reqDto;
     }
