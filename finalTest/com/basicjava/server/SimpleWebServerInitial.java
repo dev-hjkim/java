@@ -27,6 +27,9 @@ public class SimpleWebServerInitial {
                 request.read(receivedBytes);
                 String requestData = new String(receivedBytes).trim();
                 System.out.println("RequestData=\n" + requestData);
+                System.out.println(requestData.split(" ")[0]);
+                System.out.println(requestData.split(" ")[1]);
+                System.out.println(requestData.split(" ")[2].split("\n")[0]);
                 System.out.println("-------");
 
                 //Make Response data and Response
