@@ -8,7 +8,7 @@ public class Stream {
             lst.add(i);
         }
 
-        int res = lst.stream().mapToInt(i -> i.intValue()).sum();
+        int res = lst.parallelStream().mapToInt(i -> i.intValue()).sum();
         System.out.println(res);
     }
 }
